@@ -58,17 +58,31 @@
 
             .section {
                 padding: 1rem;
-                background: slategray;
-                margin: 2rem 1rem;
-                height: 400px;
-                max-width: 100%;
-            }
-
-            .section h2 {
+                background: darkslategrey;
+                margin: 2rem auto;
+                max-width: 400px;
                 text-align: center;
                 color: #fff;
             }
 
+            .section h2 {
+                font-size: 1.3rem;
+            }
+
+            .section p {
+                font-size: 1.1rem;
+            }
+
+            .section .box {
+                background: yellow;
+                width: 200px;
+                height: 200px;
+                margin: 2rem auto;
+            }
+
+            section.static .box {
+                position: static;
+            }
             @media screen and (max-width: 768px) {
                 .hero .container {
                     flex-direction: column;
@@ -106,18 +120,32 @@
         <main class="main container">
             <section class="section static">
                 <h2><code>position: static;</code></h2>
+                <div class="box"></div>
+                <p>The above box has <strong><code>position: static;</code></strong></p>
             </section>
-            <section class="section absolute">
-                <h2><code>position: absolute;</code></h2>
-            </section>
+
             <section class="section relative">
                 <h2><code>position: relative;</code></h2>
+                <div class="box"></div>
+                <p>The above box has <strong><code>position: relative;</code></strong></p>
             </section>
+
+            <section class="section absolute">
+                <h2><code>position: absolute;</code></h2>
+                <div class="box"></div>
+                <p>The above box has <strong><code>position: absolute;</code></strong></p>
+            </section>
+
             <section class="section fixed">
                 <h2><code>position: fixed;</code></h2>
+                <div class="box"></div>
+                <p>The above box has <strong><code>position: fixed;</code></strong></p>
             </section>
+
             <section class="section sticky">
                 <h2><code>position: sticky;</code></h2>
+                <div class="box"></div>
+                <p>The above box has <strong><code>position: sticky;</code></strong></p>
             </section>
         </main>
     </body>
