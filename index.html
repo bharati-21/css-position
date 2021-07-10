@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <title>CSS Position</title>
+
+        <style>
+            * {
+                box-sizing: border-box;
+                padding: 0;
+                margin: 0;
+            }
+
+            body{
+                font-family: Arial, Helvetica, sans-serif;
+                height: 100%;
+            }
+
+            .container {
+                margin: auto;
+                max-width: 900px;
+            }
+
+            header.hero {
+                background-color: steelblue;
+                position: sticky;
+                top: 0;
+                right: 0;
+                box-shadow: 0px 0px 10px #000;
+                padding: 1rem 2rem;
+                font-size: 1.2rem;
+                font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+                text-transform: uppercase;
+            }
+
+            .hero .container {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+            }
+
+            .hero h1 {
+                font-size: 1.2rem;
+                letter-spacing: 0.3rem;
+            }
+
+            .hero ul {
+                list-style: none;
+            }
+
+            .hero ul li {
+                display: inline-block;
+                padding: 0.5rem 0.75rem;
+            }
+
+            .section {
+                padding: 1rem;
+                background: slategray;
+                margin: 2rem 1rem;
+                height: 400px;
+                max-width: 100%;
+            }
+
+            .section h2 {
+                text-align: center;
+                color: #fff;
+            }
+
+            @media screen and (max-width: 768px) {
+                .hero .container {
+                    flex-direction: column;
+                    justify-content: center;
+                }
+
+                .hero h1 {
+                    margin-bottom: 1rem;
+                }
+            }
+
+            @media screen and (max-width: 600px) {
+                .hero ul {
+                    display: flex;
+                    flex-wrap: wrap;
+                    justify-content: center;
+                }
+            }
+        </style>
+
+    </head>
+    <body>
+        <header class="hero">
+            <div class="container">
+                <h1>CSS Position</h1>
+                <ul class="navbar">
+                    <li>static</li>
+                    <li>absolute</li>
+                    <li>relative</li>
+                    <li>fixed</li>
+                    <li>sticky</li>
+                </ul>
+            </div>
+        </header>
+        <main class="main container">
+            <section class="section static">
+                <h2><code>position: static;</code></h2>
+            </section>
+            <section class="section absolute">
+                <h2><code>position: absolute;</code></h2>
+            </section>
+            <section class="section relative">
+                <h2><code>position: relative;</code></h2>
+            </section>
+            <section class="section fixed">
+                <h2><code>position: fixed;</code></h2>
+            </section>
+            <section class="section sticky">
+                <h2><code>position: sticky;</code></h2>
+            </section>
+        </main>
+    </body>
+</html>
