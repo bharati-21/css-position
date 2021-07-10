@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <title>CSS Position</title>
+
+        <style>
+            * {
+                box-sizing: border-box;
+                padding: 0;
+                margin: 0;
+            }
+
+            body{
+                font-family: Arial, Helvetica, sans-serif;
+                height: 200vh;
+            }
+
+            .container {
+                margin: auto;
+                max-width: 900px;
+                padding: 1rem;
+            }
+
+            a, a:visited {
+                text-decoration: none;
+            }
+
+            a.current-link {
+                background-color: navy;
+            }  
+
+            header.hero {
+                background-color: royalblue;
+                position: sticky;
+                top: 0;
+                right: 0;
+                box-shadow: 0px 0px 10px #000;
+                font-size: 1.2rem;
+                font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+                text-transform: uppercase;
+            }
+
+            .hero .container {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+            }
+
+            .hero h1 {
+                font-size: 1.2rem;
+                letter-spacing: 0.3rem;
+                padding: 0.5rem;
+            }
+
+            .hero ul {
+                list-style: none;
+            }
+
+            .hero ul li {
+                display: inline-block;
+                margin-right: 1rem;
+            }
+
+            .hero  ul li a {
+                color: #fff;
+                padding: 0.5rem 0.75rem;
+                border-radius: 0.5rem;
+            }
+
+            .main > p{
+                text-align: center;
+                margin-bottom: 1rem;
+                font-size: 1.1rem;
+            }
+
+            .section {
+                padding: 1rem;
+                margin: 2rem auto;
+                max-width: 400px;
+                background-color: lightskyblue;
+                /* text-align: center; */
+                color: white;
+                max-width: 100%;
+            }
+
+            .section h2 {
+                font-size: 1.3rem;
+                background-color: darkgreen;
+                padding: 1rem;
+            }
+
+            .section p {
+                font-size: 1.1rem;
+                background-color: darkgreen;
+                padding: 1rem;
+            }
+
+            .section .box {
+                background-color: navy;
+                width: 200px;
+                height: 200px;
+                margin: 2rem 0;
+            }
+
+            .section div.fixed {
+                position: fixed;
+                background-color: navy;
+                top: 40vh;
+                left: 25vw;
+                right: 25vw;
+                padding: 1rem;
+                font-size: 1.2rem;
+                text-align: center;
+            }
+
+
+            @media screen and (max-width: 800px) {
+                    .hero .container {
+                        flex-direction: column;
+                        justify-content: center;
+                    }
+
+                    .hero h1 {
+                        margin-bottom: 1rem;
+                    }
+                }
+
+                @media screen and (max-width: 600px) {
+                    .hero h1 {
+                        margin-bottom: 0;
+                    }
+
+                    .hero ul {
+                        display: flex;
+                        flex-direction: column;
+                        align-items: center;
+                        justify-content: center;
+                    }
+                    .hero ul li {
+                        padding: 0.25 0;
+                        margin: 1.5rem 0 0 0;
+                        font-size: 1rem;
+                    }
+                }
+        </style>
+
+    </head>
+    <body>
+        <header class="hero">
+            <div class="container">
+                <h1>CSS Position</h1>
+                <ul class="navbar">
+                    <li><a href="./index.html">static</a></li>
+                    <li><a href="./relative.html">relative</a></li>
+                    <li><a href="./absolute.html">absolute</a></li>
+                    <li><a href="./fixed.html" class="current-link">fixed</a></li>
+                    <li><a href="./sticky.html">sticky</a></li>
+                </ul>
+            </div>
+        </header>
+        <main class="main container">
+            <section class="section position-fixed">
+                <h2><code>position: fixed;</code></h2>
+                <div class="fixed">Check out this text. It has <code>position: fixed;</code></div>
+            </section>
+            <p>Scroll and notice how the text with blue background remains <strong>fixed</strong> in the specified position</p>
+            <p>In the example, the fixed text has following styles: <br/>
+                <strong style="display: inline-block; margin-top: 0.1rem; padding: 0.5rem 1rem; background-color:yellowgreen;">
+                    <code>
+                        div.fixed {
+                            position: fixed;
+                            top: 40vh;
+                            right: 25vw;
+                            left: 25vw;
+                        }
+                    </code>
+                </strong>
+            </p>
+        </main>
+    </body>
+</html>
