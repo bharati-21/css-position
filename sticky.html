@@ -5,7 +5,7 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-        <title>CSS Position | Static</title>
+        <title>CSS Position | Sticky</title>
 
         <style>
             * {
@@ -16,7 +16,7 @@
 
             body{
                 font-family: Arial, Helvetica, sans-serif;
-                height: 100%;
+                height: 250vh;
             }
 
             .container {
@@ -37,7 +37,6 @@
                 background-color: royalblue;
                 position: sticky;
                 top: 0;
-                right: 0;
                 box-shadow: 0px 0px 10px #000;
                 font-size: 1.2rem;
                 font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
@@ -71,9 +70,14 @@
                 border-radius: 0.5rem;
             }
 
-            .main > p{
+            .main {
+                height: 90vh;
+                position: relative;
+            }
+
+            .separator {
                 text-align: center;
-                margin-bottom: 1rem;
+                margin: 1rem 0;
                 font-size: 1.1rem;
             }
 
@@ -85,6 +89,7 @@
                 /* text-align: center; */
                 color: white;
                 max-width: 100%;
+                height: 100%;
             }
 
             .section h2 {
@@ -99,16 +104,17 @@
                 padding: 1rem;
             }
 
-            .section .box {
-                background-color: navy;
-                width: 200px;
-                height: 200px;
-                margin: 2rem 0;
+           
+
+            .section .sticky {
+                background: navy;
+                padding: 1rem;
+                position: sticky;
+                top: 5px;
+                font-size: 1.3rem;
             }
 
-            section.position-static .static {
-                position: static;
-            }
+
 
             @media screen and (max-width: 800px) {
                     .hero .container {
@@ -146,31 +152,91 @@
             <div class="container">
                 <h1>CSS Position</h1>
                 <ul class="navbar">
-                    <li><a href="./index.html" class="current-link">static</a></li>
+                    <li><a href="./index.html">static</a></li>
                     <li><a href="./relative.html">relative</a></li>
                     <li><a href="./absolute.html">absolute</a></li>
                     <li><a href="./fixed.html">fixed</a></li>
-                    <li><a href="./sticky.html">sticky</a></li>
+                    <li><a href="./sticky.html" class="current-link">sticky</a></li>
                 </ul>
             </div>
-        </header>
+        </header> 
         <main class="main container">
-            <section class="section position-static">
-                <h2><code>position: static;</code></h2>
-                <div class="static box"></div>
-                <p>The above box has <strong><code>position: static;</code></strong></p>
+            <section class="section position-sticky">
+                <h2><code>position: sticky;</code></h2>
+                <div class="sticky">This element has <code>position: sticky;</code></div>
+            
+                <p class="separator">the above example, the header and the text with blue background and class <code>fixed</code> has<br/><code>position: sticky;</code> <br/></p>
+                
+                <p>The header's parent is the document, while the fixed div's parent is the main (with skyblue background)</p>
+
+                <strong><em><p>The text acts as a relative positioned element until it's away 5px away from top. As the main element is scrolled, it acts as a fixed element</p></em></strong>
+                <strong><em><p>Similarly, the header text acts as a relative positioned element until it's away 0px away from top. As the page is scrolled it acts as a fixed element</p></em></strong>
+                <p>
+                    <strong style="color: black; display: inline-block; margin-top: 0.1rem; padding: 0.5rem 1rem; background-color:yellowgreen;">
+                        <code>
+                            header.hero {
+                                position: sticky;
+                                top: 5px;
+                            }
+                            <br />
+                            <br />
+                            main.main {
+                                position: relative;
+                            }
+                            <br />
+                            <br />
+                            div.sticky {
+                                position: sticky;
+                                top: 5px;
+                            }                          
+                        </code>
+                    </strong>
+                </p>
             </section>
-            <p>This is the default position, and the <code>div.static</code> element is placed in the normal flow of document.</p>
-            <p><code>left, right, top, bottom, z-index</code> properties cannot be applied to elements with position <code>static</code>.</p>
-            <p>In the above example, the box is placed  <br/>
-                <strong style="display: inline-block; margin-top: 0.1rem; padding: 0.5rem 1rem; background-color:yellowgreen;">
-                    <code>
-                        div.relative {
-                            position: static; /* No need to mention as it's the default value*/
-                        }
-                    </code>
-                </strong>
-            </p>
         </main>
+            
     </body>
 </html>
+
+<!-- <html>
+    <head>
+        <style>
+            .sibling-element {
+	background: #f2f2f2;
+	padding: 10px;
+  border: 1px solid #81adc8;
+} 
+
+.main-element {
+    position: sticky;
+    top: 10px;
+    background-color: yellow;
+    padding: 10px;
+}
+
+.parent-element {
+    position: relative;
+    height: 800px;
+    padding: 50px 10px;
+    background-color: #81adc8;
+}
+
+        </style>
+    </head>
+	<body>
+  	<div class="parent-element">
+      <div class="sibling-element">
+      	I'm the other sibling element
+      </div>
+      
+    	<div class="main-element">
+      	All eyes on me. I am the main element.
+      </div>
+      
+      <div class="sibling-element">
+      	I'm the other sibling element
+      </div>
+    </div>
+    
+  </body>
+<html> -->
